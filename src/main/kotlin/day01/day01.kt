@@ -34,6 +34,7 @@ fun expenses2(expenseList: List<Int>): Int? {
 fun main() {
     // Answer1: 471019
     // Answer2: 103927824
-    println(expenses(File("src/main/kotlin/day01/input.txt").readLines().map { it.toInt() }))
-    println(expenses2(File("src/main/kotlin/day01/input.txt").readLines().map { it.toInt() }))
+    val data = File("src/main/kotlin/day01/input.txt").readLines().map { it.toInt() }
+    println(expenses(data))
+    println(expenses2(data))
 }
