@@ -2,12 +2,14 @@ package day01
 
 import java.io.File
 
+private val Sum = 2020
+
 /**
  * Find two numbers in expenseList that sum to 2020 and return their product.
  */
 fun expenses(expenseList: List<Int>): Int? {
     val hs = HashSet(expenseList)
-    return hs.find{ hs.contains(2020 - it) }?.let { (2020 - it) * it }
+    return hs.find{ hs.contains(Sum - it) }?.let { (Sum - it) * it }
 }
 
 /**
@@ -27,8 +29,8 @@ private inline fun <reified T> allPairs(lst: Collection<T>) = sequence {
  */
 fun expenses2(expenseList: List<Int>): Int? {
     val hs = HashSet(expenseList)
-    return allPairs(expenseList).find { hs.contains(2020 - it.first - it.second) }
-        ?.let{ (2020 - it.first - it.second) * it.first * it.second}
+    return allPairs(expenseList).find { hs.contains(Sum - it.first - it.second) }
+        ?.let{ (Sum - it.first - it.second) * it.first * it.second}
 }
 
 fun main() {
