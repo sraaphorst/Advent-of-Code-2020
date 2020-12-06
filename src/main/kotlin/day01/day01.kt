@@ -40,7 +40,6 @@ fun expenses2(expenseList: List<Int>): Int? {
 }
 
 fun main() {
-    println(allPairs(listOf(0, 1, 2)).toList())
     // Answer1: 471019
     // Answer2: 103927824
     println(expenses(File("src/main/kotlin/day01/input.txt").readLines().map { it.toInt() }))
