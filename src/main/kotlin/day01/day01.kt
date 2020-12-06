@@ -1,4 +1,5 @@
 package day01
+// By Sebastian Raaphorst, 2020.
 
 import java.io.File
 
