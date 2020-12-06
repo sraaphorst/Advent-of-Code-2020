@@ -15,24 +15,16 @@ fun expenses(expenseList: List<Int>): Int? {
  * (c0, c1), (c0, c2), ..., (c1, c2), ...
  * If lst is infinite, since we use this ordering, we will never get to (c1, c2).
  */
-inline fun <reified T> allPairs(lst: Collection<T>) = sequence {
-    if (lst.size > 1) {
-        val arr = lst.toTypedArray()
-        var idx0 = 0
-        var idx1 = 1
-
-        while (idx0 < arr.size - 1) {
-            if (idx1 >= arr.size) {
-                idx0 += 1
-                idx1 = idx0 + 1
-            }
-            if (idx1 < arr.size)
-                yield(Pair(arr[idx0], arr[idx1]))
-            idx1 += 1
-        }
-    }
+private inline fun <reified T> allPairs(lst: Collection<T>) = sequence {
+    val arr = lst.toTypedArray()
+    for (idx0 in 0 until (arr.size - 1))
+        for (idx1 in idx0 until arr.size)
+            yield(Pair(arr[idx0], arr[idx1]))
 }
 
+/**
+ * Find three numbers in the expenseList that sum to 2020 and return their product.
+ */
 fun expenses2(expenseList: List<Int>): Int? {
     val hs = HashSet(expenseList)
     return allPairs(expenseList).find { hs.contains(2020 - it.first - it.second) }
