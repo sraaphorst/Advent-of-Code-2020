@@ -19,8 +19,8 @@ private tailrec fun binarySearch(map: (Char) -> Half, input: String, lowerBound:
             null
 
     return when (map(input.first())) {
-        Half.Lower -> binarySearch(map, input.drop(1), lowerBound, (lowerBound + upperBound + 1) / 2 - 1)
-        Half.Upper -> binarySearch(map, input.drop(1), (lowerBound + upperBound + 1) / 2, upperBound)
+        Half.Lower -> binarySearch(map, input.drop(1), lowerBound, (lowerBound + upperBound) shr 1)
+        Half.Upper -> binarySearch(map, input.drop(1), ((lowerBound + upperBound) shr 1) + 1, upperBound)
     }
 }
 
