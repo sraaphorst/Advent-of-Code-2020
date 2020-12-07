@@ -3,7 +3,7 @@ package day01
 
 import java.io.File
 
-private val Sum = 2020
+private const val Sum = 2020
 
 /**
  * Find two numbers in expenseList that sum to 2020 and return their product.
